@@ -1,0 +1,152 @@
+/* Some cleanups */
+:root {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --color-background: unset;
+    --color-foreground: unset;
+    --color-links: hsl(53, 70%, 58%);
+    --color-secondary: hsl(208, 43%, 50%);
+    --base-padding: 1.5ch;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-background: #171717;
+        --color-foreground: #d4d4d4;
+        --color-links: hsl(51, 85%, 78%);
+        --color-secondary: hsl(216, 57%, 64%);
+    }
+}
+
+main {
+    padding: var(--base-padding);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: unset;
+    margin-bottom: 0.5em;
+}
+h1>span {
+    display: inline-block;
+}
+
+section {
+    margin-block-end: 2em;
+}
+
+p {
+    margin-block-start: 0.2em;
+    margin-block-end: 1em;
+    margin-inline-start: 1em;
+}
+
+a {
+    cursor: pointer;
+}
+
+h1 a {
+    display: inline-block;
+    transition: .75s cubic-bezier(0.165, 0.84, 0.44, 1);
+    font-size: 2.25rem;
+    margin-left: 1ch;
+    text-decoration: underline;
+    line-height: 1.5em;
+}
+
+body {
+    line-height: 2em;
+    scroll-behavior: smooth;
+    height: unset;
+    padding-bottom: 50px;
+}
+
+hr {
+    background: none;
+}
+hr.Major {
+    margin-top: 1ch;
+    border-top: 6px double var(--color-secondary);
+}
+
+ol {
+    margin-block: 0;
+}
+
+span.BigButtons {
+    display: inline-block;
+    white-space: wrap;
+    max-width: calc(100vw - var(--base-padding));
+}
+
+.Index {
+    transition: max-height .75s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow-y: hidden;
+    max-height: calc(2em * var(--lines));
+}
+.Index.Fold {
+    max-height: 0vh;
+}
+.Index a {
+    color: var(--color-foreground);
+    text-decoration: underline;
+    opacity: .7;
+}
+.Index a:hover {
+    opacity: 1;
+}
+a.Died {
+    filter: grayscale(1);
+    cursor: not-allowed;
+}
+
+.IndexSwitch {
+    position: relative;
+    background: var(--color-background);
+}
+.IndexSwitch::before {
+    transition: .75s cubic-bezier(0.165, 0.84, 0.44, 1);
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 10%);
+    width: 1em;
+    height: 0.2em;
+    background-image: url('/assets/chevron-down.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: fit;
+    z-index: -1;
+}
+.IndexSwitch.On::before {
+    opacity: 0;
+    transform: translate(-50%, -100%);
+}
+.IndexSwitch::after {
+    transition: .75s cubic-bezier(0.165, 0.84, 0.44, 1);
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, 80%);
+    width: 1em;
+    height: 0.2em;
+    background-image: url('/assets/chevron-up.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: fit;
+    z-index: -1;
+}
+.IndexSwitch.Off::after {
+    opacity: 0;
+    transform: translate(-50%, 180%);
+}
+
+.LinkSection>a:not(:last-child) {
+    margin-right: 1em;
+}
+.LinkSection>a {
+    text-decoration: underline;
+    display: inline-block;
+}

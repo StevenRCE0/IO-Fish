@@ -46,7 +46,7 @@ export default function App() {
 				<Meta />
 				<Links />
 			</head>
-			<body style={{ height: '100vh', width: '100%', padding: 0, margin: 0, display: 'flex' }}>
+			<body>
 				<Outlet />
 				<ScrollRestoration />
 				<ExternalScripts />
