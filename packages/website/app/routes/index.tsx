@@ -313,7 +313,7 @@ class UIC extends React.Component<UICProps, UICState> {
                     </h1>
                     <h3>{flamboyant}</h3>
                     <h6 style={{ fontWeight: 400, marginInlineStart: '5px' }}>
-                        主讲人: {card.speaker}
+                        分享者: {card.speaker}
                     </h6>
                     <div
                         className={`Index ${
