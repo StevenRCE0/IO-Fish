@@ -19,7 +19,9 @@ interface Index {
 }
 
 import { overture } from "./overture";
+import { layout } from "./layout";
 
 export const index: Index = {
     'overture': overture,
+    'layout': layout,
 }

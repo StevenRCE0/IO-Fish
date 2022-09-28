@@ -59,6 +59,7 @@ ol ol > li:before {
 }
 li > a {
     display: inline-block;
+    text-transform: capitalize;
     min-width: calc(100% - 5em);
 }
 

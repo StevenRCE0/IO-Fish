@@ -23,6 +23,7 @@ interface UICParams {
 
 interface UICState {
     indexExpanded: Boolean;
+    sectionExpanded: Boolean;
 }
 
 const card = {
@@ -40,6 +41,7 @@ class UIC extends React.Component<UICProps, UICState> {
 
         this.state = {
             indexExpanded: false,
+            sectionExpanded: false,
         };
     }
 
@@ -50,10 +52,26 @@ class UIC extends React.Component<UICProps, UICState> {
     }
 
     toggleIndex() {
-        this.setState({ indexExpanded: !this.state.indexExpanded });
+        this.setState({
+            indexExpanded: !this.state.indexExpanded,
+            sectionExpanded: false,
+        });
+    }
+    toggleSection() {
+        this.setState({
+            indexExpanded: false,
+            sectionExpanded: !this.state.sectionExpanded,
+        });
     }
 
-    getLinesVariable(nodes: Course[], depth: number = 1): React.CSSProperties {
+    getLinesVariable(number: number): React.CSSProperties {
+        return { '--lines': number } as React.CSSProperties;
+    }
+
+    getIndexLinesVariable(
+        nodes: Course[],
+        depth: number = 1,
+    ): React.CSSProperties {
         function getLines(nodes: Course[], depth: number): number {
             let lines = nodes.length;
             if (depth > 0) {
@@ -66,7 +84,7 @@ class UIC extends React.Component<UICProps, UICState> {
             return lines;
         }
 
-        return { '--lines': getLines(nodes, depth) } as React.CSSProperties;
+        return this.getLinesVariable(getLines(nodes, depth));
     }
 
     jumper(id: String) {
@@ -220,7 +238,14 @@ class UIC extends React.Component<UICProps, UICState> {
                             >
                                 Index
                             </a>
-                            <a className="Died">Sections</a>
+                            <a
+                                className={`IndexSwitch ${
+                                    this.state.sectionExpanded ? 'On' : 'Off'
+                                }`}
+                                onClick={() => this.toggleSection()}
+                            >
+                                Sections
+                            </a>
                         </span>
                     </h1>
                     <h3>{flamboyant}</h3>
@@ -239,9 +264,25 @@ class UIC extends React.Component<UICProps, UICState> {
                         className={`Index ${
                             this.state.indexExpanded ? 'Expanded' : 'Fold'
                         }`}
-                        style={this.getLinesVariable(this.props.content)}
+                        style={this.getIndexLinesVariable(this.props.content)}
                     >
                         {this.indexRenderer(this.props.content)}
+                    </div>
+                    <div
+                        className={`Index ${
+                            this.state.sectionExpanded ? 'Expanded' : 'Fold'
+                        }`}
+                        style={this.getLinesVariable(Object.keys(index).length)}
+                    >
+                        <ol>
+                            {Object.entries(index).map(([name, v]) => {
+                                return (
+                                    <li key={name}>
+                                        <a href={name}>{name}</a>
+                                    </li>
+                                );
+                            })}
+                        </ol>
                     </div>
                     <hr className="Major" />
                     {this.sectionRenderer(this.props.content)}
