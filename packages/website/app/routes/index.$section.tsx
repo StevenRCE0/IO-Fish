@@ -21,5 +21,5 @@ export default function UICSection() {
         }
     }
 
-    return <UICWrapper key={section} content={content} />;
+    return <UICWrapper sectionKey={section} content={content} />;
 }
