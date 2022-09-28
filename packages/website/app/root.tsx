@@ -30,6 +30,14 @@ export const links: LinksFunction = () => {
 			href: globalLargeStylesUrl,
 			media: 'screen and (min-width: 1024px)',
 		},
+		{
+			rel: 'icon',
+			href: '/favicon.png',
+		},
+		{
+			rel: 'apple-touch-icon',
+			href: '/apple-touch-icon.png',
+		}
 	]
 }
 
