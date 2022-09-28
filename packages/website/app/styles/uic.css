@@ -42,17 +42,24 @@ hr.Major {
 ol {
     margin-block: 0;
     counter-reset: item;
+    width: 100%;
 }
 ol > li {
+    width: 100%;
     counter-increment: item;
+}
+ol ol {
+    padding-inline: 0;
 }
 ol ol > li {
     display: block;
 }
-
 ol ol > li:before {
     content: counters(item, ".") ". ";
-    /* margin-left: -20px; */
+}
+li > a {
+    display: inline-block;
+    min-width: calc(100% - 5em);
 }
 
 h1.Head {
