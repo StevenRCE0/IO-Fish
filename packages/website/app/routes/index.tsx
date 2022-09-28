@@ -11,12 +11,14 @@ export const links: LinksFunction = () => {
 };
 
 interface UICProps {
+    key: string;
     section?: string;
     notFound: boolean;
     content: Course[];
 }
 
 interface UICParams {
+    key?: string;
     section?: string;
     content: Course[] | undefined | null;
 }
@@ -278,7 +280,26 @@ class UIC extends React.Component<UICProps, UICState> {
                             {Object.entries(index).map(([name, v]) => {
                                 return (
                                     <li key={name}>
-                                        <a href={name}>{name}</a>
+                                        <a
+                                            href={name}
+                                            onClick={(e) => {
+                                                if (
+                                                    this.props.key &&
+                                                    this.props.key == name
+                                                ) {
+                                                    e.preventDefault();
+                                                }
+                                            }}
+                                        >
+                                            {this.props.key &&
+                                            this.props.key == name ? (
+                                                <b>{name}</b>
+                                            ) : (
+                                                <React.Fragment>
+                                                    {name}
+                                                </React.Fragment>
+                                            )}
+                                        </a>
                                     </li>
                                 );
                             })}
@@ -296,6 +317,7 @@ export default function UICWrapper(params: UICParams) {
     const [searchParams, setSearchParams] = useSearchParams();
 
     const props: UICProps = {
+        key: params.key ?? 'overture',
         content: params.content ?? index['overture'],
         notFound: !!params.content,
         section: searchParams.get('section') as string,
