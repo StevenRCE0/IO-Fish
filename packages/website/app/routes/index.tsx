@@ -35,6 +35,7 @@ interface UICState {
 const card = {
     name: 'UI/UX',
     speaker: '王砚渤',
+    caption: '更多课程安排和内容正在准备中...'
 };
 
 const courseContent: Course[] = [
@@ -82,12 +83,16 @@ const courseContent: Course[] = [
                         ],
                     },
                     {
-                        lines: ['Google Design', '谷歌设计'],
+                        lines: ['Google Design', '谷歌设计主页，Material Design 设计规范，还有字体、图标、配色等资源。'],
                         links: [
                             {
-                                name: ' Google Design',
+                                name: 'Google Design',
                                 source: 'https://design.google/',
                             },
+                            {
+                                name: 'Google Fonts',
+                                source: 'https://fonts.google.com/',
+                            }
                         ],
                     },
                 ],
@@ -314,6 +319,8 @@ class UIC extends React.Component<UICProps, UICState> {
                     <h3>{flamboyant}</h3>
                     <h6 style={{ fontWeight: 400, marginInlineStart: '5px' }}>
                         分享者: {card.speaker}
+                        <span style={{ margin: '0 10px', border: 'solid 1px', opacity: 0.2 }}></span>
+                        <span style={{ opacity: 0.6 }}>{card.caption}</span>
                     </h6>
                     <div
                         className={`Index ${
