@@ -28,6 +28,9 @@ export const layout: Course[] = [
                     {
                         lines: [
                             '常用分栏、网格的排版模式，可以辅助设计师快速完成页面布局。'
+                        ]
+                    },
+                ]
             }
         ]
     }
