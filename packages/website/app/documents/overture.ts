@@ -13,6 +13,8 @@ export const overture: Course[] = [
                     '优化故事线',
                     '原型工具的使用',
                     '与开发工程师对接',
+                    '',
+                    '点击 [Sections] 查看已有课程',
                 ],
             },
         ],
@@ -27,11 +29,16 @@ export const overture: Course[] = [
                     {
                         lines: [
                             'Figma 是当今最泛用的原型设计工具，协作功能强大。已遭 Adobe 收购。',
+                            '但是你可试试 Sketch 看。',
                         ],
                         links: [
                             {
                                 name: 'Figma',
                                 source: 'https://www.figma.com/',
+                            },
+                            {
+                                name: 'Sketch',
+                                source: 'https://www.sketch.com/',
                             },
                         ],
                     },
@@ -110,10 +117,14 @@ export const overture: Course[] = [
         paragraphs: [
             {
                 lines: [
-                    '这里放一些我欣赏的实现，包括完善的 UI/UX 系统和有创意、引人深思的设计。',
+                    '这里放一些我欣赏的实现，包括完善的 UI/UX 应用和有创意、引人深思的设计。',
                     '会持续更新。',
                 ],
                 links: [
+                    {
+                        name: 'Anyway.fm',
+                        source: 'https://anyway.fm/',
+                    },
                     {
                         name: 'Apple Design Awards',
                         source: 'https://developer.apple.com/design/awards/',
@@ -121,6 +132,29 @@ export const overture: Course[] = [
                     {
                         name: 'underline.js',
                         source: 'https://underlinejs.wentin.net/',
+                    },
+                ],
+            },
+        ],
+        subsections: [
+            {
+                title: '社区',
+                paragraphs: [
+                    {
+                        links: [
+                            {
+                                name: 'Dribbble',
+                                source: 'https://dribbble.com/',
+                            },
+                            {
+                                name: 'Behance',
+                                source: 'https://www.behance.net/',
+                            },
+                            {
+                                name: 'DeviantArt',
+                                source: 'https://www.deviantart.com/',
+                            },
+                        ],
                     },
                 ],
             },
