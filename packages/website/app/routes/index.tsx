@@ -282,11 +282,14 @@ class UIC extends React.Component<UICProps, UICState> {
                                 return (
                                     <li key={name}>
                                         <a
-                                            href={name}
+                                            href={
+                                                name === 'overture' ? '/' : name
+                                            }
                                             onClick={(e) => {
                                                 if (
                                                     this.props.sectionKey &&
-                                                    this.props.sectionKey == name
+                                                    this.props.sectionKey ==
+                                                        name
                                                 ) {
                                                     e.preventDefault();
                                                 }
