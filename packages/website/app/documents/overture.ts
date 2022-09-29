@@ -1,6 +1,22 @@
-import type { Course } from ".";
+import type { Course } from '.';
 
 export const overture: Course[] = [
+    {
+        title: '课程内容',
+        paragraphs: [
+            {
+                lines: [
+                    '排版布局基础',
+                    '字体分类和常识',
+                    '配色基础',
+                    '动效和动画',
+                    '优化故事线',
+                    '原型工具的使用',
+                    '与开发工程师对接',
+                ],
+            },
+        ],
+    },
     {
         title: '资源',
         paragraphs: [],
@@ -60,6 +76,18 @@ export const overture: Course[] = [
                             },
                         ],
                     },
+                    {
+                        lines: [
+                            'IBM Carbon Design System',
+                            'IBM 的设计系统。雅。',
+                        ],
+                        links: [
+                            {
+                                name: 'IBM Carbon Design System',
+                                source: 'https://www.carbondesignsystem.com/',
+                            },
+                        ],
+                    },
                 ],
             },
             {
@@ -78,16 +106,22 @@ export const overture: Course[] = [
         ],
     },
     {
-        title: '课程内容',
+        title: '欣赏',
         paragraphs: [
             {
                 lines: [
-                    '排版布局基础',
-                    '字体分类和常识',
-                    '配色基础',
-                    '优化故事线',
-                    '原型工具的使用',
-                    '与开发工程师对接'
+                    '这里放一些我欣赏的实现，包括完善的 UI/UX 系统和有创意、引人深思的设计。',
+                    '会持续更新。',
+                ],
+                links: [
+                    {
+                        name: 'Apple Design Awards',
+                        source: 'https://developer.apple.com/design/awards/',
+                    },
+                    {
+                        name: 'underline.js',
+                        source: 'https://underlinejs.wentin.net/',
+                    },
                 ],
             },
         ],
