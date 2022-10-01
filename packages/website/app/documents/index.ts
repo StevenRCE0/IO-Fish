@@ -1,27 +1,27 @@
+import { layout } from './layout';
+import { overture } from './overture';
+
 export interface ParagraphLink {
-    name: string;
-    source: string;
+	name: string;
+	source: string;
 }
 
 export interface Paragraph {
-    lines?: string[];
-    links?: ParagraphLink[];
+	lines?: string[];
+	links?: ParagraphLink[];
 }
 
 export interface Course {
-    title: string;
-    paragraphs: Paragraph[];
-    subsections?: Course[];
+	title: string;
+	paragraphs: Paragraph[];
+	subsections?: Course[];
 }
 
 interface Index {
-    [key: string]: Course[];
+	[key: string]: Course[];
 }
 
-import { overture } from "./overture";
-import { layout } from "./layout";
-
 export const index: Index = {
-    'overture': overture,
-    'layout': layout,
+	'overture': overture,
+	'layout': layout,
 }

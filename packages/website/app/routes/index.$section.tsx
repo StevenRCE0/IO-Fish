@@ -1,25 +1,29 @@
+import type { LinksFunction } from '@remix-run/node';
+import type { Course} from '~/documents';
+
 import { useParams } from '@remix-run/react';
-import { Course, index } from '~/documents';
-import { LinksFunction } from '@remix-run/node';
-import UICWrapper from '.';
+
+import { index } from '~/documents';
 import stylesUrl from '~/styles/uic.css';
 
+import UICWrapper from '.';
+
 export const links: LinksFunction = () => {
-    return [{ rel: 'stylesheet', href: stylesUrl }];
+	return [{ rel: 'stylesheet', href: stylesUrl }];
 };
 
 export default function UICSection() {
-    let section: string | undefined | null = useParams().section;
-    let content: Course[] | undefined | null = undefined;
+	const section: string | undefined | null = useParams().section;
+	let content: Course[] | undefined | null = undefined;
 
-    if (section) {
-        const test = index[section];
-        if (test) {
-            content = test;
-        } else {
-            content = null;
-        }
-    }
+	if (section) {
+		const test = index[section];
+		if (test) {
+			content = test;
+		} else {
+			content = null;
+		}
+	}
 
-    return <UICWrapper sectionKey={section} content={content} />;
+	return <UICWrapper sectionKey={section} content={content} />;
 }

@@ -1,0 +1,12 @@
+.Balloon {
+    animation: balloonAnimation var(--balloonDuration) linear 0 1;
+}
+
+@keyframes balloonAnimation {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(2);
+    }
+}
