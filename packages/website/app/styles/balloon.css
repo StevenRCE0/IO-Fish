@@ -60,7 +60,7 @@ body {
     flex-direction: column;
     transition: max-height .75s cubic-bezier(0.165, 0.84, 0.44, 1);
     overflow-y: hidden;
-    max-height: calc(2em * var(--lines) + 0.5em);
+    max-height: calc(2em * var(--lines) + .8em);
     --linkHeight: 2em;
     background: #f0f0f0;
 }
