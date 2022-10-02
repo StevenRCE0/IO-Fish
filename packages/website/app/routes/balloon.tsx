@@ -1,8 +1,10 @@
 import type { LinksFunction } from '@remix-run/node';
 import type { CSSProperties } from 'react';
+import type { ParagraphLink } from '~/documents';
 import React, { createRef } from 'react';
 
 import stylesUrl from '~/styles/balloon.css';
+import { Helmet } from 'react-helmet';
 
 export const links: LinksFunction = () => {
     return [{ rel: 'stylesheet', href: stylesUrl }];
@@ -14,24 +16,36 @@ class SmallBalloon {
 interface BalloonProps {}
 interface BalloonState {
     timer?: NodeJS.Timer;
-    speed: number;
     decay: number;
     maxBalloons: number;
     currentRotation: number;
     rotationStep: number;
+    foldingNav: boolean;
     balloons: JSX.Element[];
 }
+
+const navigations: ParagraphLink[] = [
+    {
+        name: 'UI/UX Course',
+        source: '/',
+    },
+    {
+        name: 'Org on GitHub',
+        source: 'https://github.com/io-club',
+        blank: true,
+    },
+];
 
 class Balloon extends React.Component<BalloonProps, BalloonState> {
     balloonMachineRef: React.RefObject<any>;
     constructor(props: BalloonProps) {
         super(props);
         this.state = {
-            speed: 4000,
-            decay: 300,
-            maxBalloons: 8,
+            decay: 500,
+            maxBalloons: 6,
             currentRotation: 0,
             rotationStep: (256 * 15) / 360,
+            foldingNav: true,
             balloons: [],
         };
         this.balloonMachineRef = createRef();
@@ -88,7 +102,9 @@ class Balloon extends React.Component<BalloonProps, BalloonState> {
             position: 'fixed',
             width: '100vw',
             height: '100vh',
-            '--balloonDuration': `${this.state.speed}ms`,
+            '--balloonDuration': `${
+                this.state.decay * this.state.maxBalloons
+            }ms`,
         } as CSSProperties;
     }
 
@@ -123,15 +139,57 @@ class Balloon extends React.Component<BalloonProps, BalloonState> {
         );
     }
 
+    navigationStyleGenerator(): CSSProperties {
+        return {
+            '--lines': navigations.length,
+        } as CSSProperties;
+    }
+
     render() {
         return (
-            <div
-                style={this.balloonWrapperStyleGenerator()}
-                ref={this.balloonMachineRef}
-            >
-                {this.state.balloons}
-                <div className="Block">I/O Lab</div>
-            </div>
+            <React.Fragment>
+                <Helmet>
+                    <title>I/O Lab</title>
+                </Helmet>
+                <div
+                    style={this.balloonWrapperStyleGenerator()}
+                    ref={this.balloonMachineRef}
+                >
+                    {this.state.balloons}
+                </div>
+                <div
+                    className="Block"
+                    onMouseEnter={() => {
+                        this.setState({ foldingNav: false });
+                    }}
+                    onMouseLeave={() => {
+                        this.setState({ foldingNav: true });
+                    }}
+                >
+                    <div
+                        className={`Navigations ${
+                            this.state.foldingNav ? 'Fold' : ''
+                        }`}
+                        style={this.navigationStyleGenerator()}
+                    >
+                        {navigations.map((navigation, index) => (
+                            <a
+                                key={index}
+                                href={navigation.source}
+                                target={navigation.blank ? '_blank' : '_self'}
+                            >
+                                {navigation.name}
+                                {
+                                    navigation.blank &&
+                                    <img className='External' src='/assets/external.svg' />
+                                }
+                                
+                            </a>
+                        ))}
+                    </div>
+                    <div className="Header">I/O Lab</div>
+                </div>
+            </React.Fragment>
         );
     }
 }

@@ -4,6 +4,7 @@ import { overture } from './overture';
 export interface ParagraphLink {
 	name: string;
 	source: string;
+	blank?: boolean;
 }
 
 export interface Paragraph {

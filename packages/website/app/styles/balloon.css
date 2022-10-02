@@ -1,3 +1,7 @@
+body {
+    min-height: unset;
+}
+
 .Balloon {
     position: absolute;
     top: 0;
@@ -26,7 +30,7 @@
     90% {
         transform: scale(3);
         filter: brightness(1) saturate(1);
-        opacity
+        opacity: 1;
     }
     100% {
         transform: scale(3.1);
@@ -35,11 +39,60 @@
 }
 
 .Block {
+    --headerHorizontalPadding: 2rem;
     position: absolute;
-    bottom: 10vh;
-    left: 5vw;
+    bottom: min(10vh, 3rem);
+    left: calc(5vw + env(safe-area-inset-left));
     background-color: #FFF;
-    padding: 1.2rem 2rem 1rem 2rem;
+}
+
+.Block .Header {
+    margin: 0;
+    padding: 1rem var(--headerHorizontalPadding) .6rem var(--headerHorizontalPadding);
     font-family: var(--font-neue);
     font-size: 42pt;
+    line-height: 42pt;
+}
+
+.Navigations {
+    display: flex;
+    flex-direction: column;
+    transition: max-height .75s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow-y: hidden;
+    max-height: calc(2em * var(--lines) + 0.5em);
+    --linkHeight: 2em;
+}
+.Navigations.Fold {
+    max-height: 0;
+}
+
+.Navigations > a {
+    width: 100%;
+    height: var(--linkHeight);
+    text-decoration: none;
+    color: #333;
+    padding: 0 calc(.4rem + var(--headerHorizontalPadding));
+    vertical-align: bottom;
+}
+.Navigations > a:nth-child(1) {
+    padding-top: .5em;
+    height: calc(var(--linkHeight) + 0.5em);
+}
+.Navigations > a:hover {
+    background-color: #EEE;
+}
+.Navigations > a > img.External {
+    margin-left: .4em;
+    height: .8em;
+    width: .8em;
+    transform: translateY(6%);
+}
+
+@media (any-hover: none) {
+    .Block .Header {
+        margin-bottom: 0;
+    }
+    .Navigations.Fold {
+        max-height: unset;
+    }
 }
