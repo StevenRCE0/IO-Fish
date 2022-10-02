@@ -30,7 +30,17 @@ const navigations: ParagraphLink[] = [
         source: '/',
     },
     {
-        name: 'Org on GitHub',
+        name: 'C Course',
+        source: 'https://github.com/io-club/2022-linux',
+        blank: true,
+    },
+    {
+        name: 'Node.js Course',
+        source: 'https://github.com/io-club/2022-Node.js-ver.-Noob-',
+        blank: true,
+    },
+    {
+        name: 'GitHub',
         source: 'https://github.com/io-club',
         blank: true,
     },
@@ -42,7 +52,7 @@ class Balloon extends React.Component<BalloonProps, BalloonState> {
         super(props);
         this.state = {
             decay: 1200,
-            maxBalloons: 4,
+            maxBalloons: 3,
             currentRotation: 0,
             rotationStep: (256 * 15) / 360,
             foldingNav: true,
