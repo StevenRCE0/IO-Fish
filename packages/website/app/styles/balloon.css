@@ -1,12 +1,40 @@
 .Balloon {
-    animation: balloonAnimation var(--balloonDuration) linear 0 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: balloonAnimation var(--balloonDuration) linear;
+    transform: scale(2);
+    --fill: hsl(var(--hue), 85%, 75%);
+}
+
+.Balloon path {
+    fill: var(--fill);
 }
 
 @keyframes balloonAnimation {
     0% {
         transform: scale(0);
+        filter: brightness(0.9) saturate(0.5);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    30% {
+        filter: brightness(1) saturate(0.9);
     }
     100% {
-        transform: scale(2);
+        transform: scale(3);
+        filter: brightness(1) saturate(1);
     }
+}
+
+.Block {
+    position: absolute;
+    bottom: 10vh;
+    left: 5vw;
+    background-color: #FFF;
+    padding: 1.2rem 2rem 1rem 2rem;
+    font-family: var(--font-neue);
+    font-size: 42pt;
 }

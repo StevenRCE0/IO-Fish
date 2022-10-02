@@ -159,7 +159,7 @@ a.Died {
 }
 
 .IOBadge {
-    font-family: 'Avenir Next Ultra Light', 'Avenir Next', 'Avenir', 'Helvetica Neue', 'Segoe UI Light', 'Segoe UI', 'Helvetica', 'Arial', sans-serif;
+    font-family: var(--font-neue);
     color: var(--color-foreground);
     font-size: calc(var(--base-font-size) * 0.75);
     line-height: 0;
