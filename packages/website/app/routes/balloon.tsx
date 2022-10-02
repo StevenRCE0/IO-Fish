@@ -41,8 +41,8 @@ class Balloon extends React.Component<BalloonProps, BalloonState> {
     constructor(props: BalloonProps) {
         super(props);
         this.state = {
-            decay: 500,
-            maxBalloons: 6,
+            decay: 1200,
+            maxBalloons: 4,
             currentRotation: 0,
             rotationStep: (256 * 15) / 360,
             foldingNav: true,

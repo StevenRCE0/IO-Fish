@@ -62,6 +62,7 @@ body {
     overflow-y: hidden;
     max-height: calc(2em * var(--lines) + 0.5em);
     --linkHeight: 2em;
+    background: #f0f0f0;
 }
 .Navigations.Fold {
     max-height: 0;
@@ -80,7 +81,7 @@ body {
     height: calc(var(--linkHeight) + 0.5em);
 }
 .Navigations > a:hover {
-    background-color: #EEE;
+    background-color: #e3e3e3;
 }
 .Navigations > a > img.External {
     margin-left: .4em;
