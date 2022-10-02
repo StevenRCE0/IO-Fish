@@ -9,7 +9,7 @@ export const links: LinksFunction = () => {
 };
 
 class SmallBalloon {
-    constructor(public styles: CSSProperties) {}
+    constructor(public styles: CSSProperties, public randomBias: number) {}
 }
 interface BalloonProps {}
 interface BalloonState {
@@ -28,10 +28,10 @@ class Balloon extends React.Component<BalloonProps, BalloonState> {
         super(props);
         this.state = {
             speed: 4000,
-            decay: 600,
-            maxBalloons: 4,
+            decay: 300,
+            maxBalloons: 8,
             currentRotation: 0,
-            rotationStep: (256 * 30) / 360,
+            rotationStep: (256 * 15) / 360,
             balloons: [],
         };
         this.balloonMachineRef = createRef();
@@ -55,19 +55,19 @@ class Balloon extends React.Component<BalloonProps, BalloonState> {
 
     balloonMachine() {
         setInterval(() => {
-            if (this.state.balloons.length > this.state.maxBalloons) {
-                this.setState({
-                    balloons: this.state.balloons.slice(1),
-                });
+            let newBalloons = this.state.balloons;
+            if (newBalloons.length > this.state.maxBalloons) {
+                newBalloons = this.state.balloons.slice(1);
             }
+            newBalloons.push(
+                this.balloonSVG(
+                    this.state.currentRotation + 1,
+                    new SmallBalloon(this.balloonStyleGenerator(), 1),
+                ),
+            );
             this.setState({
                 currentRotation: this.state.currentRotation + 1,
-                balloons: this.state.balloons.concat(
-                    this.balloonSVG(
-                        this.state.currentRotation + 1,
-                        new SmallBalloon(this.balloonStyleGenerator()),
-                    ),
-                ),
+                balloons: newBalloons,
             });
         }, this.state.decay);
     }

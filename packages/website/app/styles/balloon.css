@@ -14,7 +14,7 @@
 @keyframes balloonAnimation {
     0% {
         transform: scale(0);
-        filter: brightness(0.9) saturate(0.5);
+        filter: brightness(0.4) saturate(0.5);
         opacity: 0;
     }
     10% {
@@ -23,9 +23,14 @@
     30% {
         filter: brightness(1) saturate(0.9);
     }
-    100% {
+    90% {
         transform: scale(3);
         filter: brightness(1) saturate(1);
+        opacity
+    }
+    100% {
+        transform: scale(3.1);
+        opacity: 0;
     }
 }
 
