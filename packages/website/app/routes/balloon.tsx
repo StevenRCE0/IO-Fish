@@ -35,6 +35,11 @@ const navigations: ParagraphLink[] = [
         blank: true,
     },
     {
+        name: 'Linux Course',
+        source: 'https://github.com/io-club/2022-linux',
+        blank: true,
+    },
+    {
         name: 'Node.js Course',
         source: 'https://github.com/io-club/2022-Node.js-ver.-Noob-',
         blank: true,
