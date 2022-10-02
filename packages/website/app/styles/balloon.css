@@ -78,7 +78,11 @@ body {
 }
 .Navigations > a:nth-child(1) {
     padding-top: .5em;
-    height: calc(var(--linkHeight) + 0.5em);
+    height: calc(var(--linkHeight) + .5em);
+}
+.Navigations > a:nth-last-child(1) {
+    padding-bottom: .3em;
+    height: calc(var(--linkHeight) + .3em);
 }
 .Navigations > a:hover {
     background-color: #e3e3e3;
