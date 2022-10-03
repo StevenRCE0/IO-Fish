@@ -160,10 +160,10 @@
         local('Avenir Next Bold Italic'),
         local('AvenirNext-BoldItalic'),
         local('Avenir Next'),
-        url('/fonts/Avenir Next Bold Italic.woff2') format('woff2'),
-        url('/fonts/Avenir Next Bold Italic.woff') format('woff'),
-        url('/fonts/Avenir Next Bold Italic.ttf') format('truetype'),
-        url('/fonts/Avenir Next Bold Italic.svg') format('svg');
+        url('/fonts/AvenirNextBoldItalic.woff2') format('woff2'),
+        url('/fonts/AvenirNextBoldItalic.woff') format('woff'),
+        url('/fonts/AvenirNextBoldItalic.ttf') format('truetype'),
+        url('/fonts/AvenirNextBoldItalic.svg') format('svg');
     font-weight: bold;
     font-style: italic;
 }
@@ -174,10 +174,10 @@
         local('Avenir Next Heavy'),
         local('AvenirNext-Heavy'),
         local('Avenir Next'),
-        url('/fonts/Avenir Next Heavy.woff2') format('woff2'),
-        url('/fonts/Avenir Next Heavy.woff') format('woff'),
-        url('/fonts/Avenir Next Heavy.ttf') format('truetype'),
-        url('/fonts/Avenir Next Heavy.svg') format('svg');
+        url('/fonts/AvenirNextHeavy.woff2') format('woff2'),
+        url('/fonts/AvenirNextHeavy.woff') format('woff'),
+        url('/fonts/AvenirNextHeavy.ttf') format('truetype'),
+        url('/fonts/AvenirNextHeavy.svg') format('svg');
     font-weight: 900;
     font-style: normal;
 }
