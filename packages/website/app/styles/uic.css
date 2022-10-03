@@ -76,6 +76,7 @@ span.BigButtons {
 .Index {
     transition: max-height .75s cubic-bezier(0.165, 0.84, 0.44, 1);
     overflow-y: hidden;
+    height: calc(2em * var(--lines));
     max-height: calc(2em * var(--lines));
 }
 .Index.Fold {
