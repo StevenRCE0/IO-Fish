@@ -59,7 +59,7 @@ class Balloon extends React.Component<BalloonProps, BalloonState> {
             decay: 1200,
             maxBalloons: 3,
             currentRotation: 0,
-            rotationStep: (256 * 15) / 360,
+            rotationStep: 15,
             foldingNav: true,
             balloons: [],
         };
@@ -114,9 +114,6 @@ class Balloon extends React.Component<BalloonProps, BalloonState> {
 
     balloonWrapperStyleGenerator(): CSSProperties {
         return {
-            position: 'fixed',
-            width: '100vw',
-            height: '100vh',
             '--balloonDuration': `${
                 this.state.decay * this.state.maxBalloons
             }ms`,
@@ -167,6 +164,7 @@ class Balloon extends React.Component<BalloonProps, BalloonState> {
                     <title>I/O Lab</title>
                 </Helmet>
                 <div
+                    className="BalloonWrapper"
                     style={this.balloonWrapperStyleGenerator()}
                     ref={this.balloonMachineRef}
                 >
