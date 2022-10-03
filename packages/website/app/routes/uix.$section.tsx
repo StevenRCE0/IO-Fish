@@ -6,7 +6,7 @@ import { useParams } from '@remix-run/react';
 import { index } from '~/documents';
 import stylesUrl from '~/styles/uic.css';
 
-import UICWrapper from '.';
+import UICWrapper from './uix';
 
 export const links: LinksFunction = () => {
 	return [{ rel: 'stylesheet', href: stylesUrl }];
