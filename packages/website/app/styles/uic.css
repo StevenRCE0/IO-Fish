@@ -26,7 +26,7 @@ h1 a {
 }
 
 body {
-    padding-bottom: 50px;
+    padding: 0 env(safe-area-inset-left) 50px env(safe-area-inset-right);
 }
 
 hr {
