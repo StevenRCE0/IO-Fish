@@ -31,7 +31,7 @@ const navigations: ParagraphLink[] = [
     },
     {
         name: 'C Course',
-        source: 'https://github.com/io-club/2022-linux',
+        source: 'https://github.com/io-club/2022-c',
         blank: true,
     },
     {
