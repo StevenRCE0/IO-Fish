@@ -202,7 +202,10 @@ class Balloon extends React.Component<BalloonProps, BalloonState> {
                             </a>
                         ))}
                     </div>
-                    <div className="Header">I/O Lab</div>
+                    <div className="Header">
+                        I/O La
+                        <span style={{marginLeft: '-.055em'}}>b</span>
+                    </div>
                 </div>
             </React.Fragment>
         );
