@@ -286,7 +286,7 @@ class UIC extends React.Component<UICProps, UICState> {
 									<li key={name}>
 										<a
 											href={
-												name === 'overture' ? '/' : name
+												name === 'overture' ? '/uix' : ('/uix/' + name)
 											}
 											onClick={(e) => {
 												if (
