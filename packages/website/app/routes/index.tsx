@@ -27,7 +27,7 @@ interface BalloonState {
 const navigations: ParagraphLink[] = [
     {
         name: 'UI/UX Course',
-        source: '/',
+        source: '/uix',
     },
     {
         name: 'C Course',

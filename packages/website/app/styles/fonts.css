@@ -55,34 +55,6 @@
     font-weight: 200;
     font-style: italic;
 }
-/* light */
-@font-face {
-    font-family: 'Avenir Next';
-    src:
-        local('Avenir Next Light'),
-        local('AvenirNext-Light'),
-        local('Avenir Next'),
-        url('/fonts/AvenirNextLight.woff2') format('woff2'),
-        url('/fonts/AvenirNextLight.woff') format('woff'),
-        url('/fonts/AvenirNextLight.ttf') format('truetype'),
-        url('/fonts/AvenirNextLight.svg') format('svg');
-    font-weight: 300;
-    font-style: normal;
-}
-/* light italic */
-@font-face {
-    font-family: 'Avenir Next';
-    src:
-        local('Avenir Next Light Italic'),
-        local('AvenirNext-LightItalic'),
-        local('Avenir Next'),
-        url('/fonts/AvenirNextLightItalic.woff2') format('woff2'),
-        url('/fonts/AvenirNextLightItalic.woff') format('woff'),
-        url('/fonts/AvenirNextLightItalic.ttf') format('truetype'),
-        url('/fonts/AvenirNextLightItalic.svg') format('svg');
-    font-weight: 300;
-    font-style: italic;
-}
 /* medium */
 @font-face {
     font-family: 'Avenir Next';
