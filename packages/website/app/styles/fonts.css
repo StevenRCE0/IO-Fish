@@ -20,10 +20,10 @@
         local('Avenir Next Italic'),
         local('AvenirNext-Italic'),
         local('Avenir Next'),
-        url('/fonts/Avenir Next Italic.woff2') format('woff2'),
-        url('/fonts/Avenir Next Italic.woff') format('woff'),
-        url('/fonts/Avenir Next Italic.ttf') format('truetype'),
-        url('/fonts/Avenir Next Italic.svg') format('svg');
+        url('/fonts/AvenirNextItalic.woff2') format('woff2'),
+        url('/fonts/AvenirNextItalic.woff') format('woff'),
+        url('/fonts/AvenirNextItalic.ttf') format('truetype'),
+        url('/fonts/AvenirNextItalic.svg') format('svg');
     font-weight: normal;
     font-style: italic;
 }
@@ -34,10 +34,10 @@
         local('Avenir Next Ultra Light'),
         local('AvenirNext-UltraLight'),
         local('Avenir Next'),
-        url('/fonts/Avenir Next Ultra Light.woff2') format('woff2'),
-        url('/fonts/Avenir Next Ultra Light.woff') format('woff'),
-        url('/fonts/Avenir Next Ultra Light.ttf') format('truetype'),
-        url('/fonts/Avenir Next Ultra Light.svg') format('svg');
+        url('/fonts/AvenirNextUltraLight.woff2') format('woff2'),
+        url('/fonts/AvenirNextUltraLight.woff') format('woff'),
+        url('/fonts/AvenirNextUltraLight.ttf') format('truetype'),
+        url('/fonts/AvenirNextUltraLight.svg') format('svg');
     font-weight: 200;
     font-style: normal;
 }
@@ -104,10 +104,10 @@
         local('Avenir Next Medium Italic'),
         local('AvenirNext-MediumItalic'),
         local('Avenir Next'),
-        url('/fonts/Avenir Next Medium Italic.woff2') format('woff2'),
-        url('/fonts/Avenir Next Medium Italic.woff') format('woff'),
-        url('/fonts/Avenir Next Medium Italic.ttf') format('truetype'),
-        url('/fonts/Avenir Next Medium Italic.svg') format('svg');
+        url('/fonts/AvenirNextMediumItalic.woff2') format('woff2'),
+        url('/fonts/AvenirNextMediumItalic.woff') format('woff'),
+        url('/fonts/AvenirNextMediumItalic.ttf') format('truetype'),
+        url('/fonts/AvenirNextMediumItalic.svg') format('svg');
     font-weight: 500;
     font-style: italic;
 }
