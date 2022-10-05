@@ -37,6 +37,8 @@ const card = {
 	caption: '更多课程安排和内容正在准备中...',
 };
 
+const currentRoute = '/uix'
+
 const flamboyant =
 	'人机交互工程站在科技与人文的交叉口，旨在为每个人打造更完美的工具。';
 
@@ -286,7 +288,7 @@ class UIC extends React.Component<UICProps, UICState> {
 									<li key={name}>
 										<a
 											href={
-												name === 'overture' ? '/uix' : ('/uix/' + name)
+												name === 'overture' ? currentRoute : `${currentRoute}/${name}`
 											}
 											onClick={(e) => {
 												if (
