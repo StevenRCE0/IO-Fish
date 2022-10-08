@@ -32,9 +32,10 @@ interface UICState {
 }
 
 const card = {
-	name: 'UI/UX',
-	speaker: '王砚渤',
-	caption: '更多课程安排和内容正在准备中...',
+    name: 'UI/UX',
+    speaker: '王砚渤',
+    email: 'influx.seas_0f@icloud.com',
+    caption: '更多课程安排和内容正在准备中...',
 };
 
 const currentRoute = '/uix'
@@ -229,96 +230,106 @@ class UIC extends React.Component<UICProps, UICState> {
 
 	render() {
 		return (
-			<React.Fragment>
-				<Helmet>
-					<title>{card.name}</title>
-				</Helmet>
-				<main>
-					<h1 className="IOBadge">I/O Lab</h1>
-					<h1 className="Head">
-						<span>{card.name}</span>
-						<span className="BigButtons">
-							<a
-								className={`IndexSwitch ${
-									this.state.indexExpanded ? 'On' : 'Off'
-								}`}
-								onClick={() => this.toggleIndex()}
-							>
-								Index
-							</a>
-							<a
-								className={`IndexSwitch ${
-									this.state.sectionExpanded ? 'On' : 'Off'
-								}`}
-								onClick={() => this.toggleSection()}
-							>
-								Sections
-							</a>
-						</span>
-					</h1>
-					<h3>{flamboyant}</h3>
-					<h6 style={{ fontWeight: 400, marginInlineStart: '5px' }}>
-						分享者: {card.speaker}
-						<span
-							style={{
-								margin: '0 10px',
-								border: 'solid 1px',
-								opacity: 0.2,
-							}}
-						></span>
-						<span style={{ opacity: 0.6 }}>{card.caption}</span>
-					</h6>
-					<div
-						className={`Index ${
-							this.state.indexExpanded ? 'Expanded' : 'Fold'
-						}`}
-						style={this.getIndexLinesVariable(this.props.content)}
-					>
-						{this.indexRenderer(this.props.content)}
-					</div>
-					<div
-						className={`Index ${
-							this.state.sectionExpanded ? 'Expanded' : 'Fold'
-						}`}
-						style={this.getLinesVariable(Object.keys(index).length)}
-					>
-						<ol>
-							{Object.entries(index).map(([name, v]) => {
-								return (
-									<li key={name}>
-										<a
-											href={
-												name === 'overture' ? currentRoute : `${currentRoute}/${name}`
-											}
-											onClick={(e) => {
-												if (
-													this.props.sectionKey &&
-													this.props.sectionKey ==
-														name
-												) {
-													e.preventDefault();
-												}
-											}}
-										>
-											{this.props.sectionKey &&
-											this.props.sectionKey == name ? (
-													<b>{name}</b>
-												) : (
-													<React.Fragment>
-														{name}
-													</React.Fragment>
-												)}
-										</a>
-									</li>
-								);
-							})}
-						</ol>
-					</div>
-					<hr className="Major" />
-					{this.sectionRenderer(this.props.content)}
-				</main>
-			</React.Fragment>
-		);
+            <React.Fragment>
+                <Helmet>
+                    <title>{card.name}</title>
+                </Helmet>
+                <main>
+                    <h1 className="IOBadge">I/O Lab</h1>
+                    <h1 className="Head">
+                        <span>{card.name}</span>
+                        <span className="BigButtons">
+                            <a
+                                className={`IndexSwitch ${
+                                    this.state.indexExpanded ? 'On' : 'Off'
+                                }`}
+                                onClick={() => this.toggleIndex()}
+                            >
+                                Index
+                            </a>
+                            <a
+                                className={`IndexSwitch ${
+                                    this.state.sectionExpanded ? 'On' : 'Off'
+                                }`}
+                                onClick={() => this.toggleSection()}
+                            >
+                                Sections
+                            </a>
+                        </span>
+                    </h1>
+                    <h3>{flamboyant}</h3>
+                    <h6 style={{ fontWeight: 400, marginInlineStart: '5px' }}>
+                        分享者: {card.speaker}
+                        <span
+                            style={{
+                                margin: '0 10px',
+                                border: 'solid 1px',
+                                opacity: 0.2,
+                            }}
+                        ></span>
+                        <a href={'mailto:' + card.email}>联系邮箱</a>
+                        <span
+                            style={{
+                                margin: '0 10px',
+                                border: 'solid 1px',
+                                opacity: 0.2,
+                            }}
+                        ></span>
+                        <span style={{ opacity: 0.6 }}>{card.caption}</span>
+                    </h6>
+                    <div
+                        className={`Index ${
+                            this.state.indexExpanded ? 'Expanded' : 'Fold'
+                        }`}
+                        style={this.getIndexLinesVariable(this.props.content)}
+                    >
+                        {this.indexRenderer(this.props.content)}
+                    </div>
+                    <div
+                        className={`Index ${
+                            this.state.sectionExpanded ? 'Expanded' : 'Fold'
+                        }`}
+                        style={this.getLinesVariable(Object.keys(index).length)}
+                    >
+                        <ol>
+                            {Object.entries(index).map(([name, v]) => {
+                                return (
+                                    <li key={name}>
+                                        <a
+                                            href={
+                                                name === 'overture'
+                                                    ? currentRoute
+                                                    : `${currentRoute}/${name}`
+                                            }
+                                            onClick={(e) => {
+                                                if (
+                                                    this.props.sectionKey &&
+                                                    this.props.sectionKey ==
+                                                        name
+                                                ) {
+                                                    e.preventDefault();
+                                                }
+                                            }}
+                                        >
+                                            {this.props.sectionKey &&
+                                            this.props.sectionKey == name ? (
+                                                <b>{name}</b>
+                                            ) : (
+                                                <React.Fragment>
+                                                    {name}
+                                                </React.Fragment>
+                                            )}
+                                        </a>
+                                    </li>
+                                );
+                            })}
+                        </ol>
+                    </div>
+                    <hr className="Major" />
+                    {this.sectionRenderer(this.props.content)}
+                </main>
+            </React.Fragment>
+        );
 	}
 }
 

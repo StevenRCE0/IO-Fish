@@ -11,5 +11,17 @@ export const responsive: Course[] = [
 				],
 			},
 		],
+		subsections: [
+			{
+				title: '针对鼠标指针和触控输入分别优化',
+				paragraphs: [
+					{
+						lines: [
+							
+						]
+					}
+				]
+			}
+		]
 	},
 ];
