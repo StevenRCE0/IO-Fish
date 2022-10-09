@@ -235,7 +235,7 @@ class UIC extends React.Component<UICProps, UICState> {
                     <title>{card.name}</title>
                 </Helmet>
                 <main>
-                    <h1 className="IOBadge">I/O Lab</h1>
+                    <h1 className="IOBadge" onClick={() => {window.location.replace('/')}}>I/O Lab</h1>
                     <h1 className="Head">
                         <span>{card.name}</span>
                         <span className="BigButtons">
