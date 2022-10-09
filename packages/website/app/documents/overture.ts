@@ -112,6 +112,16 @@ export const overture: Course[] = [
                 title: '更多课程',
                 paragraphs: [
                     {
+                        lines: ['一些适合入门的资源，属于是基础内容'],
+                        links: [
+                            {
+                                name: 'oooooohmygosh',
+                                source: 'https://space.bilibili.com/38053181',
+                            },
+                        ],
+                    },
+                    {
+                        lines: ['体系课程'],
                         links: [
                             {
                                 name: 'Google UX Series Course @Coursera',
