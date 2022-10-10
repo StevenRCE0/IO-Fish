@@ -185,4 +185,20 @@ export const overture: Course[] = [
             },
         ],
     },
+    {
+        title: '课程归档',
+        paragraphs: [
+            {
+                lines: [
+                    '这里是线下课程的录屏回放。链接可能会失效，如有需要可通过邮箱联系。',
+                ],
+                links: [
+                    {
+                        name: '1 - 工具使用和布局基础',
+                        source: 'https://www.icloud.com/iclouddrive/074R5zVCXLsX5K_OfjSoOaLNw#UIX_Course-1',
+                    },
+                ],
+            },
+        ],
+    },
 ];
