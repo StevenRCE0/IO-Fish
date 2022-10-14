@@ -34,7 +34,7 @@ hr {
 }
 hr.Major {
     margin-top: 1ch;
-    margin-right: calc(-1 * var(--base-padding));
+    margin-right: calc(-1 * (var(--base-padding) + env(safe-area-inset-right)));
     border: none;
     border-top: 6px double var(--color-secondary);
 }
