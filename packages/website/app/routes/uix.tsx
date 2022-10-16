@@ -169,7 +169,9 @@ class UIC extends React.Component<UICProps, UICState> {
 													return (
 														<a
 															key={linkIndex}
-															target="_blank"
+															target={
+																link.blank ?? true ? "_blank" : "_self"
+															}
 															href={
 																link.source as string
 															} rel="noreferrer"

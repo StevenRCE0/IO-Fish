@@ -13,7 +13,6 @@ export const responsive: Course[] = [
                     {
                         name: 'MDN Docs on Responsive Design',
                         source: 'https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design',
-                        blank: true,
                     },
                 ],
             },
@@ -83,7 +82,6 @@ export const responsive: Course[] = [
                             {
                                 name: 'Xbox 无障碍控制器',
                                 source: 'https://www.microsoft.com/accessibility/xbox',
-                                blank: true,
                             },
                         ],
                     },
