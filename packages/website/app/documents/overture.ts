@@ -38,18 +38,22 @@ export const overture: Course[] = [
                             {
                                 name: 'Figma',
                                 source: 'https://www.figma.com/',
+                                blank: true,
                             },
                             {
                                 name: 'Sketch',
                                 source: 'https://www.sketch.com/',
+                                blank: true,
                             },
                             {
                                 name: 'Affinity Designer',
                                 source: 'https://affinity.serif.com/en-us/designer/',
+                                blank: true,
                             },
                             {
                                 name: 'UX tools',
                                 source: 'https://uxtools.co/',
+                                blank: true,
                             },
                         ],
                     },
@@ -67,14 +71,17 @@ export const overture: Course[] = [
                             {
                                 name: 'Apple HIG',
                                 source: 'https://developer.apple.com/design/human-interface-guidelines/guidelines/overview',
+                                blank: true,
                             },
                             {
                                 name: 'Apple Design Overview',
                                 source: 'https://developer.apple.com/design/',
+                                blank: true,
                             },
                             {
                                 name: 'Resources',
                                 source: 'https://developer.apple.com/design/resources/',
+                                blank: true,
                             },
                         ],
                     },
@@ -87,10 +94,12 @@ export const overture: Course[] = [
                             {
                                 name: 'Google Design',
                                 source: 'https://design.google/',
+                                blank: true,
                             },
                             {
                                 name: 'Google Fonts',
                                 source: 'https://fonts.google.com/',
+                                blank: true,
                             },
                         ],
                     },
@@ -103,6 +112,7 @@ export const overture: Course[] = [
                             {
                                 name: 'IBM Carbon Design System',
                                 source: 'https://www.carbondesignsystem.com/',
+                                blank: true,
                             },
                         ],
                     },
@@ -117,6 +127,7 @@ export const overture: Course[] = [
                             {
                                 name: 'oooooohmygosh',
                                 source: 'https://space.bilibili.com/38053181',
+                                blank: true,
                             },
                         ],
                     },
@@ -126,6 +137,7 @@ export const overture: Course[] = [
                             {
                                 name: 'Google UX Series Course @Coursera',
                                 source: 'https://www.coursera.org/learn/foundations-user-experience-design/home',
+                                blank: true,
                             },
                         ],
                     },
@@ -145,18 +157,22 @@ export const overture: Course[] = [
                     {
                         name: 'Anyway.fm',
                         source: 'https://anyway.fm/',
+                        blank: true,
                     },
                     {
                         name: 'Apple Design Awards',
                         source: 'https://developer.apple.com/design/awards/',
+                        blank: true,
                     },
                     {
                         name: 'underline.js',
                         source: 'https://underlinejs.wentin.net/',
+                        blank: true,
                     },
                     {
                         name: 'Typogram',
                         source: 'https://typogram.co',
+                        blank: true,
                     },
                 ],
             },
@@ -170,14 +186,17 @@ export const overture: Course[] = [
                             {
                                 name: 'Dribbble',
                                 source: 'https://dribbble.com/',
+                                blank: true,
                             },
                             {
                                 name: 'Behance',
                                 source: 'https://www.behance.net/',
+                                blank: true,
                             },
                             {
                                 name: 'DeviantArt',
                                 source: 'https://www.deviantart.com/',
+                                blank: true,
                             },
                         ],
                     },
@@ -196,6 +215,7 @@ export const overture: Course[] = [
                     {
                         name: '1 - 工具使用和布局基础',
                         source: 'https://www.icloud.com/iclouddrive/074R5zVCXLsX5K_OfjSoOaLNw#UIX_Course-1',
+                        blank: true,
                     },
                 ],
             },
