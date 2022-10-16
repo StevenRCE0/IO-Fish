@@ -80,8 +80,8 @@ export const responsive: Course[] = [
                         ],
                         links: [
                             {
-                                name: 'Xbox 无障碍控制器',
-                                source: 'https://www.microsoft.com/accessibility/xbox',
+                                name: 'Xbox Adaptive Controller',
+                                source: 'https://www.xbox.com/en-gb/accessories/controllers/xbox-adaptive-controller',
                             },
                         ],
                     },
