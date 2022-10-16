@@ -2,7 +2,7 @@ import type { Course } from '.';
 
 export const responsive: Course[] = [
     {
-        title: '响应式设计与无障碍',
+        title: '响应式设计',
         paragraphs: [
             {
                 lines: [
@@ -47,17 +47,19 @@ export const responsive: Course[] = [
                     },
                 ],
             },
+        ],
+    },
+    {
+        title: '无障碍设计',
+        paragraphs: [
             {
-                title: '无障碍设计',
-                paragraphs: [
-                    {
-                        lines: [
-                            '当我们进行谈论无障碍时，我们在谈论什么？',
-                            '无障碍并不等同于为“残障人士”设计，而是在于使人机接口在任何情况下都更加易于使用。这包括使用场景、用户的暂时状况、文化背景等等。',
-                        ],
-                    },
+                lines: [
+                    '当我们进行谈论无障碍时，我们在谈论什么？',
+                    '无障碍并不等同于为“残障人士”设计，而是在于使人机接口在任何情况下都更加易于使用。这包括使用场景、用户的暂时状况、文化背景等等。',
                 ],
             },
+        ],
+        subsections: [
             {
                 title: '适用的场景',
                 paragraphs: [
