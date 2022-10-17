@@ -197,6 +197,10 @@ export const overture: Course[] = [
                         name: '1 - 工具使用和布局基础',
                         source: 'https://www.icloud.com/iclouddrive/074R5zVCXLsX5K_OfjSoOaLNw#UIX_Course-1',
                     },
+                    {
+                        name: '2 - 响应式和无障碍设计',
+                        source: 'https://www.icloud.com/iclouddrive/0674sqz58s4CF8BSaVVgA7odQ#UIX_Course-2',
+                    },
                 ],
             },
         ],
