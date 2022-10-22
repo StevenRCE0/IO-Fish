@@ -243,19 +243,19 @@ class UIC extends React.Component<UICProps, UICState> {
                         <span className="BigButtons">
                             <a
                                 className={`IndexSwitch ${
-                                    this.state.indexExpanded ? 'On' : 'Off'
-                                }`}
-                                onClick={() => this.toggleIndex()}
-                            >
-                                Index
-                            </a>
-                            <a
-                                className={`IndexSwitch ${
                                     this.state.sectionExpanded ? 'On' : 'Off'
                                 }`}
                                 onClick={() => this.toggleSection()}
                             >
                                 Sections
+                            </a>
+                            <a
+                                className={`IndexSwitch ${
+                                    this.state.indexExpanded ? 'On' : 'Off'
+                                }`}
+                                onClick={() => this.toggleIndex()}
+                            >
+                                Index
                             </a>
                         </span>
                     </h1>
