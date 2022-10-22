@@ -1,6 +1,7 @@
 import { layout } from './layout';
 import { overture } from './overture';
 import { responsive } from './responsive';
+import { colour } from './colour';
 
 export interface ParagraphLink {
     name: string;
@@ -27,4 +28,5 @@ export const index: Index = {
     overture: overture,
     layout: layout,
     responsive: responsive,
+    colour: colour,
 };
