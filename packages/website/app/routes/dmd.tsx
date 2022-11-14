@@ -1,7 +1,5 @@
-import Surface from "~/dont-mark-me-down/surface";
+import Surface from '~/dont-mark-me-down/surface'
 
 export default function DMD() {
-    return (
-        <Surface string="Hello" />
-    )
+	return <Surface string="Hello" />
 }
