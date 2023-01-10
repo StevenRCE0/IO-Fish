@@ -7,6 +7,11 @@ export interface Tokenizer {
 	defaultChildren?: Tokenizer[]
 }
 
+interface loggedTokenizer {
+	tokenizer: Tokenizer
+	indent: number
+}
+
 export interface Token {
 	type: Tokenizer
 	string?: string
@@ -17,6 +22,15 @@ export interface Options {
 	indentUsing?: string
 	endSymbol?: string
 	rootTokenizer: Tokenizer
+}
+
+interface RawToken {
+	indentLevel: number
+	type?: Tokenizer
+	class?: string[]
+	id?: string
+	string?: string
+	break: boolean
 }
 
 const defaultRootTokenizer: Tokenizer = {
@@ -32,7 +46,7 @@ export default class MarkMe {
 	indentUsing: string
 	endSymbol: string
 	extensions: Tokenizer[] = []
-	tokenizerStack: Tokenizer[] = []
+	tokenizerStack: loggedTokenizer[] = []
 	tokenIdentifiers: string[] = []
 	rootTokenizer: Tokenizer
 
@@ -46,27 +60,29 @@ export default class MarkMe {
 		)
 	}
 
-	tokenize(line: string): Token {
-		// regex to match token before endSymbol
-		const regex = new RegExp(
-			`(${this.tokenIdentifiers.join('|')})${this.endSymbol}`
+	getRawToken(string: string): RawToken {
+		const indentLevel = string.match(new RegExp(`^(${this.indentUsing})*`))
+			?.length ?? 0
+		const doBreak = string.endsWith("  ")
+		const stringWithoutIndent = string.slice(indentLevel * this.indentUsing.length)
+		let regex = new RegExp(
+			`^(${this.tokenIdentifiers.join('|')})`
 		)
-		const match = line.match(regex)
-		const text = line.replace(regex, '')
-		if (!match) {
-			const r = {
-				type: this.tokenizerStack.at(-1)!.defaultChildren[0]!,
-				string: text,
-			}
-			console.log('nomatch', r)
-			return r
-		}
-		const token = this.extensions.find(
-			(extension) => extension.matchingString === match[1]
-		) ?? { tag: match[1] }
+		const identifier = stringWithoutIndent.match(regex)
+		regex = new RegExp(`^\\.([a-zA-Z0-9_-]+)`)
+		const classMatch = stringWithoutIndent.match(regex) ?? []
+		regex = new RegExp(`^#([a-zA-Z0-9_-]+)`)
+		const id = stringWithoutIndent.match(regex)?.at(0)
+		const prefixLength = stringWithoutIndent.split(this.endSymbol)[0].length
+		const rawString = stringWithoutIndent.slice(prefixLength)
+
 		return {
-			type: token,
-			string: text,
+			indentLevel,
+			type: identifier ? this.extensions.find((extension) => extension.tag === identifier[1]) : undefined,
+			class: classMatch,
+			id: id,
+			string: rawString.trimEnd().length == 0 ? undefined : rawString.trimEnd(),
+			break: doBreak
 		}
 	}
 
@@ -74,37 +90,64 @@ export default class MarkMe {
 		const lines = string.split('\n')
 
 		// create root token
-		this.tokenizerStack.push(this.rootTokenizer)
-		const rootToken: Token = {
+		this.tokenizerStack.push({tokenizer: this.rootTokenizer, indent: 0})
+		const rootToken: RawToken = {
 			type: this.rootTokenizer,
+			indentLevel: 0,
+			break: true
 		}
 
-		// push to tokenizerStack by indent
-		const indentStack: number[] = []
-		const tokens = lines.map((line) => {
-			let token = this.tokenize(line)
-			const indentRegExp = new RegExp(`^(${this.indentUsing})*`)
-			const indent = line.match(indentRegExp)?.length ?? 0
-			if (indent > (indentStack.at(-1) ?? 0)) {
+		// create tokens and children recursively according to indent level
+		const piTokens = lines.reduce((tokens, line) => {
+			const rawToken = this.getRawToken(line)
+			if (rawToken.indentLevel > rootToken.indentLevel) {
+				const lastToken = tokens[tokens.length - 1]
+				lastToken.children = lastToken.children ?? []
+				lastToken.children.push(rawToken)
+			} else if (rawToken.indentLevel === rootToken.indentLevel) {
+				tokens.push(rawToken)
+			} else {
+				const lastToken = tokens[tokens.length - 1]
+				const parentToken = this.tokenizerStack.find(
+					(token) => token.indent === rawToken.indentLevel
+				)
+				if (parentToken) {
+					parentToken.tokenizer.defaultChildren?.forEach((child) => {
+						lastToken.children = lastToken.children ?? []
+						lastToken.children.push({
+							type: child,
+							indentLevel: rawToken.indentLevel,
+							break: true
+						})
+					})
+				}
+			}
+			return tokens
+		}, [rootToken])
+
+		let tokens = lines.map((line) => {
+			let rawToken = this.getRawToken(line)
+			let doBreak = rawToken.break || (!!rawToken.type && !!rawToken.class && !!rawToken.id && !!rawToken.string)
+			const targetTokenizer = rawToken.type ?? this.tokenizerStack.at(-1)!.tokenizer.defaultChildren![rawToken.indentLevel - this.tokenizerStack.at(-1)!.indent - 1] ?? this.tokenizerStack.at(-1)!.tokenizer.defaultChildren!.at(-1)!
+
+			if (rawToken.indentLevel > (this.tokenizerStack.at(-1)?.indent ?? 0)) {
 				console.log('pushed')
-				indentStack.push(indent)
-				this.tokenizerStack.push(token.type)
-			} else if (indent < (indentStack.at(-1) ?? 0)) {
+				this.tokenizerStack.push({tokenizer: targetTokenizer, indent: rawToken.indentLevel})
+			} else if (
+				rawToken.indentLevel < (this.tokenizerStack.at(-1)?.indent ?? 0)
+			) {
 				console.log('popped')
-				indentStack.pop()
 				this.tokenizerStack.pop()
 			}
-
-			return token
 		})
-		rootToken.children = tokens
+
 
 		// create react elements recursively
-		const createReactElement = (token: Token): JSX.Element => {
+		const createReactElement = (token: RawToken, parent: RawToken): JSX.Element => {
 			const children =
-				token.type.leaf || !token.children
+				token.type?.leaf ?? false
 					? token.string
-					: tokens.map(createReactElement)
+					: tokens.map(childToken => createReactElement(childToken, token))
 			console.log('children', children)
 			return createElement(token.type.tag, {}, children)
 		}
