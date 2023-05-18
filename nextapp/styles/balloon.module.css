@@ -1,0 +1,137 @@
+
+.BalloonWrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300vw;
+    height: 300vh;
+}
+
+.Balloon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: balloonAnimation var(--balloonDuration) linear;
+    opacity: 0;
+}
+
+.Balloon path {
+    --l1: 55%;
+    --l2: 75%;
+    --l3: 90%;
+    animation: balloonPathAnimation var(--balloonDuration) linear;
+}
+
+@keyframes balloonAnimation {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1.1);
+        opacity: 0;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .Balloon path {
+        --l1: 15%;
+        --l2: 25%;
+        --l3: 50%;
+    }
+}
+
+@keyframes balloonPathAnimation {
+    0% {
+        fill: hsl(var(--hue), 55%, var(--l1));
+    }
+
+    30% {
+        fill: hsl(var(--hue), 95%, var(--l2));
+    }
+
+    100% {
+        fill: hsl(var(--hue), 95%, var(--l3));
+    }
+}
+
+.Block {
+    --headerHorizontalPadding: 2rem;
+    position: absolute;
+    bottom: min(10vh, 3rem);
+    left: calc(5vw + env(safe-area-inset-left));
+    background-color: #FFF;
+    color: #171717;
+}
+
+.Block .Header {
+    margin: 0;
+    padding: 1rem var(--headerHorizontalPadding) .6rem var(--headerHorizontalPadding);
+    font-family: var(--font-neue);
+    font-size: 42pt;
+    line-height: 42pt;
+}
+
+.Navigations {
+    display: flex;
+    flex-direction: column;
+    transition: max-height .75s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow-y: hidden;
+    max-height: calc(2em * var(--lines) + .8em);
+    --linkHeight: 2em;
+    background: #f0f0f0;
+}
+
+.Navigations.Fold {
+    max-height: 0;
+}
+
+.Navigations>a {
+    width: 100%;
+    height: var(--linkHeight);
+    text-decoration: none;
+    color: #333;
+    padding: 0 calc(.4rem + var(--headerHorizontalPadding));
+    vertical-align: bottom;
+}
+
+.Navigations>a:nth-child(1) {
+    padding-top: .5em;
+    height: calc(var(--linkHeight) + .5em);
+}
+
+.Navigations>a:nth-last-child(1) {
+    padding-bottom: .3em;
+    height: calc(var(--linkHeight) + .3em);
+}
+
+.Navigations>a:hover {
+    background-color: #e3e3e3;
+}
+
+.Navigations>a>img.External {
+    margin-left: .4em;
+    height: .8em;
+    width: .8em;
+    transform: translateY(6%);
+}
+
+@media (any-hover: none) {
+    .Block .Header {
+        margin-bottom: 0;
+    }
+
+    .Navigations.Fold {
+        max-height: unset;
+    }
+}
