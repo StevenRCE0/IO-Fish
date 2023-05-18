@@ -1,0 +1,168 @@
+
+
+
+/*h1>span {
+    display: inline-block;
+}*/
+
+/*section {
+    margin-block-end: 2em;
+}*/
+
+/*p {
+    margin-block-start: 0.2em;
+    margin-block-end: 1em;
+    margin-inline-start: 1em;
+    max-width: 768px;
+}*/
+
+/*h1 a {
+    display: inline-block;
+    transition: .75s cubic-bezier(0.165, 0.84, 0.44, 1);
+    font-size: 2.25rem;
+    margin-left: 1ch;
+    text-decoration: underline;
+}*/
+
+/*body {
+    padding: 0 env(safe-area-inset-left) 50px env(safe-area-inset-right);
+}*/
+
+/*hr {
+    background: none;
+}
+hr.Major {
+    margin-top: 1ch;
+    margin-right: calc(-1 * (var(--base-padding) + env(safe-area-inset-right)));
+    border: none;
+    border-top: 6px double var(--color-secondary);
+}
+
+ol {
+    margin-block: 0;
+    counter-reset: item;
+    width: 100%;
+}
+ol > li {
+    width: 100%;
+    counter-increment: item;
+}
+ol ol {
+    padding-inline: 0;
+}
+ol ol > li {
+    display: block;
+}
+ol ol > li:before {
+    content: counters(item, ".") ". ";
+}
+li > a {
+    display: inline-block;
+    text-transform: capitalize;
+    min-width: calc(100% - 5em);
+}
+
+h1.Head {
+    margin-block-start: 0;
+}
+
+span.BigButtons {
+    display: inline-block;
+    white-space: wrap;
+    max-width: calc(100vw - var(--base-padding));
+}*/
+
+.Index {
+    transition: max-height .75s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow-y: hidden;
+    height: calc(2em * var(--lines));
+    max-height: calc(2em * var(--lines));
+}
+.Index.Fold {
+    max-height: 0vh;
+}
+.Index a {
+    color: var(--color-foreground);
+    text-decoration: underline;
+    opacity: .7;
+}
+.Index a:hover {
+    opacity: 1;
+}
+a.Died {
+    filter: grayscale(1);
+    cursor: not-allowed;
+}
+
+.SectionIndicator {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1.4em;
+    font-weight: 300;
+    color: var(--color-secondary);
+    text-decoration: none;
+}
+.SectionIndicator:hover {
+    color: var(--color-secondary);
+}
+
+.IndexSwitch {
+    position: relative;
+    background: var(--color-background);
+}
+.IndexSwitch::before {
+    transition: .75s cubic-bezier(0.165, 0.84, 0.44, 1);
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, calc(100% + var(--big-button-offset)));
+    width: 1em;
+    height: 0.2em;
+    background-image: url('/assets/chevron-down.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: fit;
+    z-index: -1;
+}
+.IndexSwitch.On::before {
+    opacity: 0;
+    transform: translate(-50%, var(--big-button-offset));
+}
+.IndexSwitch::after {
+    transition: .75s cubic-bezier(0.165, 0.84, 0.44, 1);
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, calc(-1 * var(--big-button-offset)));
+    width: 1em;
+    height: 0.2em;
+    background-image: url('/assets/chevron-up.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: fit;
+    z-index: -1;
+}
+.IndexSwitch.Off::after {
+    opacity: 0;
+    transform: translate(-50%, calc(100% - var(--big-button-offset)));
+}
+
+.LinkSection>a:not(:last-child) {
+    margin-right: 1em;
+}
+.LinkSection>a {
+    text-decoration: underline;
+    display: inline-block;
+}
+
+.IOBadge {
+    font-family: var(--font-neue);
+    color: var(--color-foreground);
+    font-size: calc(var(--base-font-size) * 0.75);
+    line-height: 0;
+    font-weight: 300;
+    margin: 0 0 calc(0.91em - var(--base-padding)) 0;
+}
